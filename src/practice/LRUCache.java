@@ -17,10 +17,14 @@ public class LRUCache {
 		Page page = this.pageMap.get(pageNum);
 		if (page != null) {
 			System.out.println(page.getPageNo());
+			if(pageQueue.remove(page))
+				pageQueue.add(page);
 		} else {
 			page = new Page(pageNum);
 			if (this.pageMap.size() == this.capicity) {
-				System.out.println("Removed page " + this.pageQueue.poll().getPageNo());
+				Page removedPage = this.pageQueue.poll();
+				pageMap.remove(removedPage.getPageNo());
+				System.out.println("Removed page " + removedPage.getPageNo());
 			}
 			this.pageMap.put(pageNum, page);
 			this.pageQueue.add(page);
@@ -28,7 +32,7 @@ public class LRUCache {
 	}
 
 	public static void main(String[] args) {
-    LRUCache cache = new LRUCache(2);
+    LRUCache cache = new LRUCache(6);
     cache.accessPage(2);
     cache.accessPage(3);
     cache.accessPage(4);
