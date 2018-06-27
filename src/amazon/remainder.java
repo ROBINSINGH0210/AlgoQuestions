@@ -1,7 +1,5 @@
 package amazon;
 
-import java.util.Arrays;
-
 class A {
 	protected int x = 10;
 	static int j = 21;
@@ -11,7 +9,7 @@ class B extends A {
 
 }
 
-public class Test {
+public class remainder {
 	static int number;
 
 	public static void main(String[] args) {

@@ -11,12 +11,13 @@ public class SinglyLinkedListTestClass {
 		list.insert(5);
 		list.insert(9);
 		System.out.println(list.size());
-		Iterator itr = list.iterator();
-		System.out.println(itr.hasNext());
-		System.out.println(itr.next());
-		System.out.println(itr.next());
-		System.out.println(itr.next());
-		System.out.println(itr.next());
+//		Iterator itr = list.iterator();
+//		System.out.println(itr.hasNext());
+//		System.out.println(itr.next());
+//		System.out.println(itr.next());
+//		System.out.println(itr.next());
+//		System.out.println(itr.next());
+	   list.reverse();
 	}
 
 }

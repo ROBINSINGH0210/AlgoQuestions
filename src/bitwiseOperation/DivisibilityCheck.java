@@ -3,7 +3,7 @@ package bitwiseOperation;
 import java.util.Scanner;
 
 public class DivisibilityCheck {
-
+	
 	public static void main(String[] args) {
 		isDivisible(4);
 	}

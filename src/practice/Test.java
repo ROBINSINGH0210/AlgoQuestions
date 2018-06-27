@@ -1,5 +1,10 @@
 package practice;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class Test {
 
 	/**
@@ -7,8 +12,16 @@ public class Test {
 	 */
 	public static void main(String[] args) {
 		String s = "abcab";
-		System.out.println( countSubstringWithEqualEnds(s));
+		List<Integer> s2 = new ArrayList<Integer>();
+		s2.add(2);
+		s2.add(33);
+		s2.add(56);
 		
+		String str = s2.toString();
+		System.out.println(s2.toString().replace("[", "").replace("]", ""));
+//		
+//		System.out.println( countSubstringWithEqualEnds(s));
+//		
 
 	}
 	static int countSubstringWithEqualEnds(String s)
