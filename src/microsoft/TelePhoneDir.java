@@ -9,9 +9,9 @@ public class TelePhoneDir {
 
 	public static void main(String[] args) {
 		Trie t = new Trie();
-		String s[] = { "rob", "robs" };
+		String s[] = { "robin", "robsm", "robis", "robises" };
 		t.insertContactsArray(s);
-		t.getContactList("rob");
+		System.out.println(t.getContactList("rob"));
 	}
 
 }
@@ -21,7 +21,7 @@ class TrieNode {
 	boolean isLast;
 
 	public TrieNode() {
-		child = new HashMap<>();
+		child = new HashMap<Character, TrieNode>();
 		isLast = false;
 	}
 }
@@ -67,22 +67,30 @@ class Trie {
 			} else if (next != null)
 				ss += s.charAt(i);
 		}
-		getContactUtil(next);
+		List<String> listTemp = new ArrayList<String>();
+		;
+		for (Map.Entry<Character, TrieNode> map : next.child.entrySet()) {
+			listTemp.clear();
+			String sss = ss + map.getKey();
+			getContactUtil(map.getValue(), listTemp);
+			for (String string : listTemp) {
+				list.add(sss + string);
+			}
+		}
 		return list;
 	}
 
-	public String getContactUtil(TrieNode next) {
-		String s="";
-		for (Map.Entry<Character, TrieNode> map : next.child.entrySet()) {
-			if(!map.getValue().isLast) {
-				s += map.getKey();
-				if(map.getValue().child != null)
-					getContactUtil(map.getValue());
-			}else {
-				s += map.getKey();
-			}
+	public void getContactUtil(TrieNode next, List<String> list) {
+
+		if (next.isLast) {
+			return;
 		}
-		return s;
+
+		for (Character c : next.child.keySet()) {
+			list.add(""+c);
+			getContactUtil(next.child.get(c), list);
+		}
+
 	}
 
 }
