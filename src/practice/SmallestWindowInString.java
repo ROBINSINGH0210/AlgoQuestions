@@ -18,7 +18,7 @@ public class SmallestWindowInString {
 		int lastSo = -1;
 		int diffd = Integer.MAX_VALUE;
 		int start = 0;
-		while (start < str.length()) {
+		while (start < str.length() && str.length() >= sub.length()) {
 			int tempFirst = -1;
 			int tempLast = -1;
 			int tempDiff = -1;
@@ -33,19 +33,17 @@ public class SmallestWindowInString {
 				}
 			}
 
-			if (s.isEmpty()) {
-				if (diffd > tempDiff) {
-					first = tempFirst;
-					lastSo = tempLast;
-					diffd = tempDiff;
-				}
+			if (s.isEmpty() && diffd > tempDiff) {
+				first = tempFirst;
+				lastSo = tempLast;
+				diffd = tempDiff;
 			}
 			start++;
 		}
 		if (first > 0 && lastSo > 0) {
 			return str.substring(first, lastSo + 1);
 		}
-		return null;
+		return "Window Not Found";
 	}
 
 }
