@@ -1,4 +1,4 @@
-package javaTest;
+package treeQuestions;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.*;
 

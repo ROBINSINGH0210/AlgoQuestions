@@ -1,4 +1,4 @@
-package amazon;
+package practice;
 
 class A {
 	protected int x = 10;

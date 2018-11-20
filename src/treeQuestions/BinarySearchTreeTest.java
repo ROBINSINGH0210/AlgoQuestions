@@ -1,8 +1,9 @@
-package javaTest;
+package treeQuestions;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class BinarySearchTreeTest {
@@ -14,11 +15,24 @@ public class BinarySearchTreeTest {
 	 */
 	public static void main(String[] args) {
 		tree = TreeTraverse.createBinaryTree();
-		tree.right.left = BinarySearchTree.createBinarySearchTree();
-		TreeTraverse.inOrderTraverse(tree);
-		setDataInSet(tree);
+		
+//		Map<Integer, List<Integer>> map =TreeTraverse.printVerticalOrder(tree);
+//		
+//		map.entrySet().forEach(e-> System.out.println("" +e .getKey() + " Value"+ e.getValue()));
+		
+		System.out.println(" Postorder Traversal ");
+		TreeTraverse.postOrderTraverse(tree);
+		
+		Map<Integer, List<Integer>>  map =TreeTraverse.printTreeViewFromTop(tree);
+		
+		map.entrySet().forEach(e-> System.out.println("" +e .getKey() + " Value"+ e.getValue()));
+		
+		
+//		tree.right.left = BinarySearchTree.createBinarySearchTree();
+//		TreeTraverse.inOrderTraverse(tree);
+//		setDataInSet(tree);
 //		Object[] a = set1.toArray();
-		findLength(set1.toArray(new Integer [10]), set1.size());
+//		findLength(set1.toArray(new Integer [10]), set1.size());
 //		System.out.println(isBST());
 //		smallestElementOnKthPosition(5);
 	}

@@ -1,4 +1,4 @@
-package com;
+package algoQuestions;
 
 import java.util.*;
 

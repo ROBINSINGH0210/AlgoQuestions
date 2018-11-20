@@ -1,4 +1,6 @@
-package javaTest;
+package treeQuestions;
+
+import java.util.Random;
 
 public class Emp {
 
@@ -26,11 +28,8 @@ public class Emp {
 		this.name = name;
 	}
 
-	/*
-	 * @Override public int hashCode() { return 1; }
-	 */
-	/*
-	 * @Override public boolean equals(Object obj) { // TODO Auto-generated
-	 * method stub return true; }
-	 */
+	@Override
+	public boolean equals(Object obj) {
+		return true;
+	}
 }

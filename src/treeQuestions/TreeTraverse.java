@@ -1,9 +1,11 @@
-package javaTest;
+package treeQuestions;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Stack;
+import java.util.TreeMap;
 
 public class TreeTraverse {
 
@@ -196,25 +198,71 @@ public class TreeTraverse {
 	}
 
 	/* This funtcion is here just to test buildTree() */
-	
-	
-	
+
 	public List<Integer> inorderInIterative(BinaryTree node) {
 		Stack<BinaryTree> stack = new Stack<BinaryTree>();
 		BinaryTree tree = node;
 		List<Integer> list = new ArrayList<Integer>();
 		BinaryTree prev = null;
-		if(node != null)
+		if (node != null)
 			stack.push(node);
-		
+
 		while (!stack.isEmpty()) {
-			if(prev == null || stack.peek().left == null || stack.peek().right == null) {
-				
+			if (prev == null || stack.peek().left == null || stack.peek().right == null) {
+
 			}
-			
+
 		}
-			
+
 		return list;
+	}
+
+	public static Map<Integer, List<Integer>> printVerticalOrder(BinaryTree node) {
+		Integer hd = 0;
+		Map<Integer, List<Integer>> treeMap = new TreeMap<Integer, List<Integer>>();
+		getVerticalOrder(node, hd, treeMap);
+		return treeMap;
+	}
+
+	public static void getVerticalOrder(BinaryTree root, Integer hd, Map<Integer, List<Integer>> treeMap) {
+
+		if (root == null) {
+			return;
+		}
+
+		List<Integer> list = treeMap.get(hd);
+		if (list == null) {
+			list = new ArrayList<Integer>();
+			list.add(root.root);
+			treeMap.put(hd, list);
+		} else {
+			list.add(root.root);
+		}
+		getVerticalOrder(root.left, hd - 1, treeMap);
+		getVerticalOrder(root.right, hd + 1, treeMap);
+	}
+
+	public static Map<Integer, List<Integer>> printTreeViewFromTop(BinaryTree node) {
+		Integer hd = 0;
+		Map<Integer, List<Integer>> treeMap = new TreeMap<Integer, List<Integer>>();
+		getTreeViewFromTop(node, hd, treeMap);
+		return treeMap;
+	}
+	
+	public static void getTreeViewFromTop(BinaryTree root, Integer hd, Map<Integer, List<Integer>> treeMap) {
+
+		if (root == null) {
+			return;
+		}
+
+		List<Integer> list = treeMap.get(hd);
+		if (list == null) {
+			list = new ArrayList<Integer>();
+			list.add(root.root);
+			treeMap.put(hd, list);
+		}
+		getTreeViewFromTop(root.left, hd - 1, treeMap);
+		getTreeViewFromTop(root.right, hd + 1, treeMap);
 	}
 
 }

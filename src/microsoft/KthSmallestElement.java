@@ -4,7 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.LineNumberInputStream;
 
-import javaTest.BinaryTree;
+import treeQuestions.BinaryTree;
 
 public class KthSmallestElement {
 

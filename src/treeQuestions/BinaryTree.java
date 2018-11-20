@@ -1,4 +1,4 @@
-package javaTest;
+package treeQuestions;
 
 import java.util.Iterator;
 import java.util.Stack;

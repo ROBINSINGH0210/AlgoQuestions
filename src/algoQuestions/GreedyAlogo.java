@@ -1,4 +1,4 @@
-package com;
+package algoQuestions;
 
 public class GreedyAlogo { // m is size of coins array (number of different
 							// coins)

@@ -1,4 +1,4 @@
-package com;
+package algoQuestions;
 
 public class HelloWorld {
 	String name;

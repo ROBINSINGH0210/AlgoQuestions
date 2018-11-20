@@ -1,4 +1,4 @@
-package javaTest;
+package treeQuestions;
 
 import java.util.*;
 public class TestThread implements Runnable {
