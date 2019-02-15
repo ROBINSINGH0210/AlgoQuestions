@@ -32,7 +32,7 @@ public class Feature {
 		}
 		 
 		 
-		System.out.println(Integer.toBinaryString(missingNumber(arr)).);
+		System.out.println(Integer.toBinaryString(missingNumber(arr)));
 	}
 
 }
