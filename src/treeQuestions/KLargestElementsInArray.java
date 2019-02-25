@@ -7,11 +7,12 @@ public class KLargestElementsInArray {
 
 	public static void main(String... strings) {
 		List<Integer> list = new ArrayList<Integer>();
-		for (int i = 0; i < 999999; i++) {
-			list.add(ThreadLocalRandom.current().nextInt(1, 1209999 + 1));
+		for (int i = 0; i < 20; i++) {
+			list.add(ThreadLocalRandom.current().nextInt(1, 20 + 1));
 		}
 		// System.out.print("Array List Data" + list);
-		getKLargestElementC(5, list);
+		getKLargestElementUsingArray(5, list);
+		getKLargestElementUsingMap(5, list);
 
 	}
 
@@ -26,15 +27,15 @@ public class KLargestElementsInArray {
 
 	}
 
-	public static void getKLargestElementC(int k, List<Integer> list) {
+	public static void getKLargestElementUsingMap(int k, List<Integer> list) {
 		System.out.println();
 		Map<Integer, Integer> map = new TreeMap<>();
-//		for (Integer value : list) {
-//			if (map.containsKey(value))
-//				map.put(value, map.get(value) + 1);
-//			else
-//				map.put(value, 1);
-//		}
+		// for (Integer value : list) {
+		// if (map.containsKey(value))
+		// map.put(value, map.get(value) + 1);
+		// else
+		// map.put(value, 1);
+		// }
 		list.parallelStream().forEach(e -> {
 			if (map.containsKey(e)) {
 				map.put(e, map.get(e) + 1);
@@ -52,6 +53,27 @@ public class KLargestElementsInArray {
 
 		// Collections.sort(list);
 		// System.out.println(list);
+	}
+
+	public static void getKLargestElementUsingArray(int k, List<Integer> list) {
+		System.out.println();
+		int max = list.parallelStream().mapToInt(e -> e).max().getAsInt() + 1;
+		int temp[] = new int[max];
+		int maxVal = Integer.MIN_VALUE;
+		for (Integer value : list) {
+			temp[value]++;
+			if (maxVal < value)
+				maxVal = value;
+		}
+
+		for (int i = 0; i <= maxVal; i++) {
+			if (temp[i] >= k) {
+				System.out.println("Largest Element " + i);
+				break;
+			} else
+				k -= temp[i];
+		}
+
 	}
 
 }
