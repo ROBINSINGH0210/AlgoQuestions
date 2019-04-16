@@ -2,7 +2,6 @@ package algoQuestions;
 
 import java.util.*;
 
-import org.omg.PortableInterceptor.DISCARDING;
 
 public class Dijkstra {
 
