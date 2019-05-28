@@ -1,9 +1,24 @@
 package algoQuestions;
 
+import java.util.Scanner;
+
 public class SolveSudoku {
 
 	public static void main(String[] args) {
-
+		Scanner sc = new Scanner(System.in);
+		int testCase = sc.nextInt();
+		for (int k = 0; k < testCase; k++) {
+			int arr[][] = new int[9][9];
+			for (int i = 0; i < 9; i++) {
+				for (int j = 0; j < 9; j++) {
+					arr[i][j] = sc.nextInt();
+				}
+			}
+			if(solveSudoku(arr))
+			  System.out.println(1);
+			else
+			  System.out.println(0);
+		}
 	}
 
 	private static boolean solveSudoku(int board[][]) {
