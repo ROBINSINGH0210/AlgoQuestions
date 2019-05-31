@@ -7,8 +7,8 @@ import java.util.Map;
 import java.util.Set;
 
 public class BinarySearchTreeTest {
-	static BinaryTree tree = null;
-	static BinaryTree prev;
+	static Node tree = null;
+	static Node prev;
 
 	/**
 	 * @param args
@@ -16,9 +16,9 @@ public class BinarySearchTreeTest {
 	public static void main(String[] args) {
 		tree = TreeTraverse.createBinaryTree();
 		
-//		Map<Integer, List<Integer>> map =TreeTraverse.printVerticalOrder(tree);
+//		Map<Integer, List<Integer>> trie =TreeTraverse.printVerticalOrder(tree);
 //		
-//		map.entrySet().forEach(e-> System.out.println("" +e .getKey() + " Value"+ e.getValue()));
+//		trie.entrySet().forEach(e-> System.out.println("" +e .getKey() + " Value"+ e.getValue()));
 		
 		System.out.println(" Postorder Traversal ");
 		TreeTraverse.postOrderTraverse(tree);
@@ -42,7 +42,7 @@ public class BinarySearchTreeTest {
 		return isBST(tree);
 	}
 
-	static boolean isBST(BinaryTree node) {
+	static boolean isBST(Node node) {
 		// traverse the tree in inorder fashion and
 		// keep a track of previous node
 		if (node != null) {
@@ -50,8 +50,8 @@ public class BinarySearchTreeTest {
 				return false;
 
 			// allows only distinct values node
-			if (prev != null && node.root <= prev.root) {
-				System.out.println(node.root);
+			if (prev != null && node.data <= prev.data) {
+				System.out.println(node.data);
 				return false;
 			}
 			prev = node;
@@ -66,12 +66,12 @@ public class BinarySearchTreeTest {
 		smallestElement(tree);
 
 	}
-	public static void smallestElement(BinaryTree node) {
+	public static void smallestElement(Node node) {
 		if (node != null) {
 			smallestElement(node.left);
 			num = num - 1;
 			if (num == 0) {
-				System.out.println("Data " + node.root);
+				System.out.println("Data " + node.data);
 			}
 			smallestElement(node.right);
 		}
@@ -79,11 +79,11 @@ public class BinarySearchTreeTest {
 	
 	static List<Integer> set1 = new ArrayList<Integer>();
 	static Set<Integer> set2 = new HashSet<Integer>();
-	public static void setDataInSet(BinaryTree node) {
+	public static void setDataInSet(Node node) {
 		if (node != null) {
 			smallestElement(node.left);
-			set1.add(node.root);
-			System.out.println("Data " + node.root);
+			set1.add(node.data);
+			System.out.println("Data " + node.data);
 			smallestElement(node.right);
 		}
 	}

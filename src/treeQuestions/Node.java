@@ -31,6 +31,15 @@ public class Node {
 		}
 		
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Node [left=").append(left).append(", right=").append(right).append(", data=").append(data)
+				.append("]");
+		return builder.toString();
+	}
+	 
 }
 
 

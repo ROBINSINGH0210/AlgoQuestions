@@ -2,30 +2,30 @@ package treeQuestions;
 
 public class BinarySearchTree {
 
-	public static BinaryTree search(BinaryTree node, int key) {
-		if (node == null || node.root == key) {
+	public static Node search(Node node, int key) {
+		if (node == null || node.data == key) {
 			return node;
-		} else if (key > node.root) {
+		} else if (key > node.data) {
 			return search(node.right, key);
 		} else {
 			return search(node.left, key);
 		}
 	}
 
-	public static BinaryTree insertNode(BinaryTree node, int key) {
+	public static Node insertNode(Node node, int key) {
 		if (node == null)
-			return new BinaryTree(key);
-		else if (key > node.root)
+			return new Node(key);
+		else if (key > node.data)
 			node.right = insertNode(node.right, key);
 		else
 			node.left = insertNode(node.left, key);
 		return node;
 	}
 
-	public static BinaryTree deletion(BinaryTree node, int key) {
+	public static Node deletion(Node node, int key) {
 		if (node != null) {
-			if (node.root == key) {
-				System.out.println(node.root);
+			if (node.data == key) {
+				System.out.println(node.data);
 				if (node.left == null && node.right == null) {
 					node = null;
 				} else if (node.left == null && node.right != null) {
@@ -33,11 +33,11 @@ public class BinarySearchTree {
 				} else if (node.left != null && node.right == null) {
 					node = node.left;
 				} else {
-					node.root = minValue(node.right);
-					node.right = deletion(node.right, node.root);
+					node.data = minValue(node.right);
+					node.right = deletion(node.right, node.data);
 
 				}
-			} else if (key > node.root) {
+			} else if (key > node.data) {
 				node.right = deletion(node.right, key);
 			} else {
 				node.left = deletion(node.left, key);
@@ -48,17 +48,17 @@ public class BinarySearchTree {
 		return node;
 	}
 
-	public static int minValue(BinaryTree node) {
-		int minv = node.root;
+	public static int minValue(Node node) {
+		int minv = node.data;
 		while (node.left != null) {
-			minv = node.left.root;
+			minv = node.left.data;
 			node = node.left;
 		}
 		return minv;
 	}
 
 	public static void main(String[] args) {
-		BinaryTree tree = createBinarySearchTree();
+		Node tree = createBinarySearchTree();
 		TreeTraverse.inOrderTraverse(tree);
 		deletion(tree, 20);
 		// System.out.println((search(tree, 19) != null) ? search(tree, 19).root
@@ -67,8 +67,8 @@ public class BinarySearchTree {
 		TreeTraverse.inOrderTraverse(tree);
 	}
 
-	public static BinaryTree createBinarySearchTree() {
-		BinaryTree tree = new BinaryTree(20);
+	public static Node createBinarySearchTree() {
+		Node tree = new Node(20);
 		tree = insertNode(tree, 8);
 		tree = insertNode(tree, 22);
 		tree = insertNode(tree, 4);

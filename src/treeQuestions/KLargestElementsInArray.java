@@ -31,10 +31,10 @@ public class KLargestElementsInArray {
 		System.out.println();
 		Map<Integer, Integer> map = new TreeMap<>();
 		// for (Integer value : list) {
-		// if (map.containsKey(value))
-		// map.put(value, map.get(value) + 1);
+		// if (trie.containsKey(value))
+		// trie.put(value, trie.get(value) + 1);
 		// else
-		// map.put(value, 1);
+		// trie.put(value, 1);
 		// }
 		list.parallelStream().forEach(e -> {
 			if (map.containsKey(e)) {

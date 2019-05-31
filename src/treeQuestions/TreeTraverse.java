@@ -10,7 +10,7 @@ import java.util.TreeMap;
 public class TreeTraverse {
 
 	public static void main(String... strings) {
-		// BinaryTree tree = createBinaryTree();
+		// Node tree = createBinaryTree();
 		// printLevelOrder(tree);
 		// System.out.println("");
 		// inOrderTraverse(tree);
@@ -23,19 +23,19 @@ public class TreeTraverse {
 
 		int pre[] = new int[] { 37, 41, 43, 13, 5, 11, 29, 23, 2, 17, 47, 7, 3, 19, 31 };
 		int size = pre.length;
-		BinaryTree root = constructTree(pre, size);
+		Node root = constructTree(pre, size);
 		System.out.println("Inorder traversal of the constructed tree is ");
 		postOrderTraverse(root);
-		// inOrderTraverse(root);
+		// inOrderTraverse(data);
 
 	}
 
-	public static BinaryTree createBinaryTree() {
-		BinaryTree root = new BinaryTree(13);
-		BinaryTree a = new BinaryTree(5);
-		BinaryTree b = new BinaryTree(43);
-		BinaryTree c = new BinaryTree(11);
-		BinaryTree d = new BinaryTree(41);
+	public static Node createBinaryTree() {
+		Node root = new Node(13);
+		Node a = new Node(5);
+		Node b = new Node(43);
+		Node c = new Node(11);
+		Node d = new Node(41);
 		root.left = a;
 		root.right = b;
 		a.left = c;
@@ -43,32 +43,32 @@ public class TreeTraverse {
 		return root;
 	}
 
-	public static void inOrderTraverse(BinaryTree tree) {
+	public static void inOrderTraverse(Node tree) {
 		if (tree != null) {
 			inOrderTraverse(tree.left);
-			System.out.println("Data " + tree.root);
+			System.out.println("Data " + tree.data);
 			inOrderTraverse(tree.right);
 		}
 	}
 
-	public static void preOrderTraverse(BinaryTree tree) {
+	public static void preOrderTraverse(Node tree) {
 		if (tree != null) {
-			System.out.println("Data " + tree.root);
+			System.out.println("Data " + tree.data);
 			inOrderTraverse(tree.left);
 			inOrderTraverse(tree.right);
 		}
 	}
 
-	public static void postOrderTraverse(BinaryTree tree) {
+	public static void postOrderTraverse(Node tree) {
 		if (tree != null) {
 			inOrderTraverse(tree.left);
 			inOrderTraverse(tree.right);
-			System.out.println("Data " + tree.root);
+			System.out.println("Data " + tree.data);
 		}
 	}
 
 	/* function to print level order traversal of tree */
-	static void printLevelOrder(BinaryTree root) {
+	static void printLevelOrder(Node root) {
 		int h = height(root);
 		int i;
 		for (i = 1; i <= h; i++) {
@@ -78,9 +78,9 @@ public class TreeTraverse {
 
 	/*
 	 * Compute the "height" of a tree -- the number of nodes along the longest path
-	 * from the root node down to the farthest leaf node.
+	 * from the data node down to the farthest leaf node.
 	 */
-	static int height(BinaryTree root) {
+	static int height(Node root) {
 		if (root == null)
 			return 0;
 		else {
@@ -97,22 +97,22 @@ public class TreeTraverse {
 	}
 
 	/* Print nodes at the given level */
-	static void printGivenLevel(BinaryTree root, int level) {
+	static void printGivenLevel(Node root, int level) {
 		if (root == null)
 			return;
 		if (level == 1)
-			System.out.print(root.root + " ");
+			System.out.print(root.data + " ");
 		else if (level > 1) {
 			printGivenLevel(root.left, level - 1);
 			printGivenLevel(root.right, level - 1);
 		}
 	}
 
-	static void printGivenLevelSpiral(BinaryTree node, int level, boolean ltr) {
+	static void printGivenLevelSpiral(Node node, int level, boolean ltr) {
 		if (node == null)
 			return;
 		if (level == 1)
-			System.out.print(node.root + " ");
+			System.out.print(node.data + " ");
 		else if (level > 1) {
 			if (ltr != false) {
 				printGivenLevelSpiral(node.left, level - 1, ltr);
@@ -124,7 +124,7 @@ public class TreeTraverse {
 		}
 	}
 
-	static void printSpiral(BinaryTree node) {
+	static void printSpiral(Node node) {
 		int h = height(node);
 		int i;
 
@@ -142,39 +142,39 @@ public class TreeTraverse {
 
 	}
 
-	static BinaryTree constructTree(int pre[], int size) {
+	static Node constructTree(int pre[], int size) {
 
-		// The first element of pre[] is always root
-		BinaryTree root = new BinaryTree(pre[0]);
+		// The first element of pre[] is always data
+		Node root = new Node(pre[0]);
 
-		Stack<BinaryTree> s = new Stack<BinaryTree>();
+		Stack<Node> s = new Stack<Node>();
 
-		// Push root
+		// Push data
 		s.push(root);
 
 		// Iterate through rest of the size-1 items of given preorder array
 		for (int i = 1; i < size; ++i) {
-			BinaryTree temp = null;
+			Node temp = null;
 
 			/*
 			 * Keep on popping while the next value is greater than stack's top value.
 			 */
-			while (!s.isEmpty() && pre[i] > s.peek().root) {
+			while (!s.isEmpty() && pre[i] > s.peek().data) {
 				temp = s.pop();
 			}
 
 			// Make this greater value as the right child and push it to the stack
 			if (temp != null) {
-				temp.right = new BinaryTree(pre[i]);
+				temp.right = new Node(pre[i]);
 				s.push(temp.right);
 			}
 
 			// If the next value is less than the stack's top value, make this value
-			// as the left child of the stack's top BinaryTree. Push the new BinaryTree to
+			// as the left child of the stack's top Node. Push the new Node to
 			// stack
 			else {
 				temp = s.peek();
-				temp.left = new BinaryTree(pre[i]);
+				temp.left = new Node(pre[i]);
 				s.push(temp.left);
 			}
 		}
@@ -199,11 +199,11 @@ public class TreeTraverse {
 
 	/* This funtcion is here just to test buildTree() */
 
-	public List<Integer> inorderInIterative(BinaryTree node) {
-		Stack<BinaryTree> stack = new Stack<BinaryTree>();
-		BinaryTree tree = node;
+	public List<Integer> inorderInIterative(Node node) {
+		Stack<Node> stack = new Stack<Node>();
+		Node tree = node;
 		List<Integer> list = new ArrayList<Integer>();
-		BinaryTree prev = null;
+		Node prev = null;
 		if (node != null)
 			stack.push(node);
 
@@ -217,14 +217,14 @@ public class TreeTraverse {
 		return list;
 	}
 
-	public static Map<Integer, List<Integer>> printVerticalOrder(BinaryTree node) {
+	public static Map<Integer, List<Integer>> printVerticalOrder(Node node) {
 		Integer hd = 0;
 		Map<Integer, List<Integer>> treeMap = new TreeMap<Integer, List<Integer>>();
 		getVerticalOrder(node, hd, treeMap);
 		return treeMap;
 	}
 
-	public static void getVerticalOrder(BinaryTree root, Integer hd, Map<Integer, List<Integer>> treeMap) {
+	public static void getVerticalOrder(Node root, Integer hd, Map<Integer, List<Integer>> treeMap) {
 
 		if (root == null) {
 			return;
@@ -233,23 +233,23 @@ public class TreeTraverse {
 		List<Integer> list = treeMap.get(hd);
 		if (list == null) {
 			list = new ArrayList<Integer>();
-			list.add(root.root);
+			list.add(root.data);
 			treeMap.put(hd, list);
 		} else {
-			list.add(root.root);
+			list.add(root.data);
 		}
 		getVerticalOrder(root.left, hd - 1, treeMap);
 		getVerticalOrder(root.right, hd + 1, treeMap);
 	}
 
-	public static Map<Integer, List<Integer>> printTreeViewFromTop(BinaryTree node) {
+	public static Map<Integer, List<Integer>> printTreeViewFromTop(Node node) {
 		Integer hd = 0;
 		Map<Integer, List<Integer>> treeMap = new TreeMap<Integer, List<Integer>>();
 		getTreeViewFromTop(node, hd, treeMap);
 		return treeMap;
 	}
 	
-	public static void getTreeViewFromTop(BinaryTree root, Integer hd, Map<Integer, List<Integer>> treeMap) {
+	public static void getTreeViewFromTop(Node root, Integer hd, Map<Integer, List<Integer>> treeMap) {
 
 		if (root == null) {
 			return;
@@ -258,7 +258,7 @@ public class TreeTraverse {
 		List<Integer> list = treeMap.get(hd);
 		if (list == null) {
 			list = new ArrayList<Integer>();
-			list.add(root.root);
+			list.add(root.data);
 			treeMap.put(hd, list);
 		}
 		getTreeViewFromTop(root.left, hd - 1, treeMap);

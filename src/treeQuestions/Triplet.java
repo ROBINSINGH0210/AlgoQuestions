@@ -33,4 +33,34 @@ public class Triplet {
 		}
 	}
 
+	public boolean findTriplets(int arr[], int n) {
+		Arrays.sort(arr);
+		int zeroIndex = -1;
+		int posStartIndex = -1;
+		int negEndIndex = -1;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == 0 && zeroIndex < 0)
+				zeroIndex = i;
+			if (arr[i] > 0 && posStartIndex < 0)
+				posStartIndex = i;
+			if (arr[i] < 0) 
+				posStartIndex = i;
+			if (zeroIndex > -1 && posStartIndex > -1 && negEndIndex > -1) {
+				break;
+			}
+		}
+
+		if ((posStartIndex > -1 && negEndIndex == -1) || (posStartIndex == -1 && negEndIndex > -1)) {
+			return false;
+		} else if (posStartIndex == -1 && negEndIndex == -1 && zeroIndex > -1) {
+			return true;
+		}
+
+//		for() {
+//			
+//		}
+		
+		return false;
+	}
+
 }
