@@ -1,4 +1,4 @@
-package algoQuestions;
+package arrayAlgoQues;
 
 public class Sort012 {
 

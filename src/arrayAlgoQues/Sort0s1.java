@@ -1,4 +1,4 @@
-package algoQuestions;
+package arrayAlgoQues;
 
 import java.util.Arrays;
 

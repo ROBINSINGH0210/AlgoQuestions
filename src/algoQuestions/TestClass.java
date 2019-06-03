@@ -22,3 +22,17 @@ public class TestClass {
 	}
 
 }
+
+
+class Temp{
+	
+	int id;
+
+	@Override
+	public int hashCode() {
+		
+		return 2;
+	}
+	
+	
+}

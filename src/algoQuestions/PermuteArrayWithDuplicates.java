@@ -57,7 +57,7 @@ public class PermuteArrayWithDuplicates {
 		}
 	}
 
-	private static void permuteArray(int start, int[] arr, List<int[]> list) {
+	public static void permuteArray(int start, int[] arr, List<int[]> list) {
 		if (start >= arr.length) {
 			list.add(arr.clone());
 		}

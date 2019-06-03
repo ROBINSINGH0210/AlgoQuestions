@@ -38,9 +38,9 @@ public class SubBinaryTree {
             return s;  
 		
 		s += node.data+left+right;
-		if(s.length()>4 && set.contains(s)) {
+		if(s.length()>4 && set.contains(s)) 
 			return "";
-		}else
+		else
 			set.add(s);
 		
 		return s;

@@ -1,6 +1,6 @@
 package algoQuestions;
 
-import linkedListTest.SinglyLinkedList;
+import linkedListQues.SinglyLinkedList;
 
 public class DetectAndRemoveLoop {
 
