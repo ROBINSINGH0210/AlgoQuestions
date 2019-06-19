@@ -67,7 +67,7 @@ class ReorderList {
 		size++;
 		reorder(head.next);
 		count--;
-		if (count <= size / 2 && (head.data == orig.data || (head.next != null && head.next.data == orig.data))) {
+		if ( (size %2 !=0 && count == size / 2) || (size %2 ==0 && count < size / 2)) {
 			reached = true;
 		}
 		if (reached) {
