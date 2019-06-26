@@ -10,12 +10,11 @@ public class SinglyLinkedList {
 	public static class Node {
 		public int data;
 		public Node next;
+		public Node down;
 
 		Node(int data) {
 			this.data = data;
-			next = null;
 		}
-		
 
 		@Override
 		public String toString() {
@@ -23,7 +22,7 @@ public class SinglyLinkedList {
 			builder.append("Node [data=").append(data).append(", next=").append(next).append("]");
 			return builder.toString();
 		}
-		
+
 	}
 
 	public void insert(int data) {
@@ -85,31 +84,31 @@ public class SinglyLinkedList {
 		}
 		this.head = previous;
 	}
-	
+
 	public Node mergeSort(Node h) {
-		if(h == null || h.next ==null)
+		if (h == null || h.next == null)
 			return h;
 		Node m = middle(h);
-		
+
 		Node middleNext = m.next;
 		m.next = null;
-		
+
 		Node left = mergeSort(h);
 		Node right = mergeSort(middleNext);
-		
-		return mergeSortedLikedList(left,right);
+
+		return mergeSortedLikedList(left, right);
 	}
 
 	private Node mergeSortedLikedList(Node left, Node right) {
 		Node result;
-		if(left == null)
+		if (left == null)
 			return right;
-		if(right== null)
+		if (right == null)
 			return left;
-		if(left.data<=right.data) {
+		if (left.data <= right.data) {
 			result = left;
 			result.next = mergeSortedLikedList(left.next, right);
-		}else {
+		} else {
 			result = right;
 			result.next = mergeSortedLikedList(left, right.next);
 		}
@@ -117,27 +116,26 @@ public class SinglyLinkedList {
 	}
 
 	private Node middle(Node h) {
-		if (h == null) 
-			return h; 
+		if (h == null)
+			return h;
 		Node slowPtr = h;
 		Node fastPtr = h.next;
-		while(fastPtr !=null) {
-			fastPtr =  fastPtr.next;
-			if(fastPtr!=null) {
+		while (fastPtr != null) {
+			fastPtr = fastPtr.next;
+			if (fastPtr != null) {
 				slowPtr = slowPtr.next;
 				fastPtr = fastPtr.next;
 			}
 		}
 		return slowPtr;
 	}
-	void printList(Node headref)  
-    { 
-        while (headref != null)  
-        { 
-            System.out.print(headref.data + " "); 
-            headref = headref.next; 
-        } 
-    } 
+
+	void printList(Node headref) {
+		while (headref != null) {
+			System.out.print(headref.data + " ");
+			headref = headref.next;
+		}
+	}
 
 	@Override
 	public String toString() {
@@ -145,7 +143,5 @@ public class SinglyLinkedList {
 		builder.append("SinglyLinkedList [head=").append(head).append(", size=").append(size).append("]");
 		return builder.toString();
 	}
-	
-	
-	
+
 }
