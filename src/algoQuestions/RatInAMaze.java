@@ -8,7 +8,7 @@ public class RatInAMaze {
 	}
 
 	public static boolean isSafe(int maze[][], int x, int y) {
-		return (x >= 0 && y >= 0 && y < maze.length && x < maze.length);
+		return (x >= 0 && y >= 0 && y < maze.length && x < maze.length && maze[x][y] == 1);
 	}
 
 	public static boolean ratInMazeUtil(int maze[][], int x, int y, int sol[][]) {
