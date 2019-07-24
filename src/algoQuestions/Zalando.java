@@ -17,8 +17,8 @@ public class Zalando {
 		 }
 		 System.out.println(num);
 
-//		int A = 90;
-//		int B = 990;
+		int A = 90;
+		int B = 990;
 		int count = 0;
 		int x = 1;
 		int y = 0;
