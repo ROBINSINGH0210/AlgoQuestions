@@ -17,12 +17,15 @@ public class Zalando {
 		 }
 		 System.out.println(num);
 
+		 
+		 
+		 
 		int A = 90;
 		int B = 990;
 		int count = 0;
 		int x = 1;
 		int y = 0;
-
+System.out.println("");
 		while ((y = x * (x + 1)) <= B) {
 			System.out.println(y + "  "+x);
 			if (y >= A && y <= B) {
