@@ -67,9 +67,11 @@ class ReorderList {
 		size++;
 		reorder(head.next);
 		count--;
-		if ( (size %2 !=0 && count == size / 2) || (size %2 ==0 && count < size / 2)) {
+		//Condition to check odd/even size of list
+		if ((size % 2 != 0 && count == size / 2) || (size % 2 == 0 && count < size / 2)) {
 			reached = true;
 		}
+		// No need to swap once reached to the last element.
 		if (reached) {
 			orig.next = null;
 			return;
