@@ -41,12 +41,12 @@ public class TinyUrl {
 
 	}
 	private static String reverseUrl(String tinyUrl) {
-		long nBase10 = 0;
+		long num = 0;
 		char arr[] = tinyUrl.toCharArray(); 
 		for (int i = arr.length -1 ; i >= 0; i--) {
 			int index = charStr.indexOf(arr[i]);
-			nBase10 += index * (long) Math.pow(base, i);
+			num += index * (long) Math.pow(base, i);
 		}
-		return urlMap.get(nBase10);
+		return urlMap.get(num);
 	}
 }
