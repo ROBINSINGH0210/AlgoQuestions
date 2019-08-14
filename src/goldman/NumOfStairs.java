@@ -3,7 +3,7 @@ package goldman;
 public class NumOfStairs {
 
 	public static void main(String[] args) {
-		int num = 30;
+		int num = 40;
 		int count = numOfSteps(num);
 		System.out.println(count);
 	}
