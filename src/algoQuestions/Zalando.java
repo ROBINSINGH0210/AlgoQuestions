@@ -1,7 +1,5 @@
 package algoQuestions;
 
-import java.util.*;
-
 public class Zalando {
 
 	public static void main(String[] args) {
