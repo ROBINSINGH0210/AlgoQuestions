@@ -42,7 +42,7 @@ public class AnagramCheck {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(checkAnagram("robin singh", "robin singh"));
+		System.out.println(checkAnagram("robin singh Panwar", "robin singh panwar"));
 		
 		System.out.println(charReqForAnagram("robin", "ro"));
 
