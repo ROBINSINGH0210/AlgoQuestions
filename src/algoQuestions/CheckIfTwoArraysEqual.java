@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class CheckIfTwoArraysEqual {
 
 	public static void main(String[] args) {
-		int A[] = {1, 2, 5}, B[] = {2, 4, 15};
+		int A[] = {1, 2, 5,5}, B[] = {2, 4, 15,4};
 
 		System.out.println(isEqual(A, B));
 	}
