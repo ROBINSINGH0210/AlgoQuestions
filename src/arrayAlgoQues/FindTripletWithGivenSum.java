@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author robin
- * FindTripletWithGivenSum
- * Space complexity O(n), Time complexity O(nlogn)
+ * @author robin FindTripletWithGivenSum Space complexity O(n), Time complexity
+ *         O(nlogn)
  */
 public class FindTripletWithGivenSum {
 
 	public static void main(String[] args) {
-		int arr[] = new int[] { 1, 5, 9, 11, 20, 15 };
-		System.out.println(findTriplet(arr, 29));
+		int arr[] = new int[] { 1, 2, 4, 90, 99, 1000 };
+
+		System.out.println(findTriplet(arr, 1003));
 	}
 
 	static List<Integer> findTriplet(int arr[], int value) {
@@ -32,9 +32,9 @@ public class FindTripletWithGivenSum {
 				list.add(arr[j]);
 				list.add(k2);
 				break;
-			} else if ((arr[i] + arr[j]) < value) {
+			} else if ((arr[i] + arr[j]) < value)
 				i++;
-			} else
+			else
 				j--;
 		}
 
