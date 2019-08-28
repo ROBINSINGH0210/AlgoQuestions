@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 class CombinationfromABCChar {
 	public static void main (String[] args) {
+		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
         int t=sc.nextInt();
         while(t>0){
