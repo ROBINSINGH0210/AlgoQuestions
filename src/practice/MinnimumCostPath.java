@@ -28,7 +28,7 @@ public class MinnimumCostPath {
 
 	public static void main(String[] args) {
 		int[][] A = { { 1, 7, 9, 2 }, { 8, 6, 3, 2 }, { 1, 6, 7, 8 },
-				{ 2, 9, 8, 2 } };
+				{ 2, 9, 8, 5 } };
 		System.out.println("Minimum Cost Path " + find(A));
 	}
 }
