@@ -6,7 +6,7 @@ public class PairWithGivenProduct {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int arr[] = { 10, 20, 9, -40 };
+		int arr[] = { 10, 20, 9, -30 };
 		int x = -400;
 		System.out.println(isPairPresent(arr, x));
 
