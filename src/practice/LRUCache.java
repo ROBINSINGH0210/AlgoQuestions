@@ -5,7 +5,7 @@ import java.util.*;
 public class LRUCache {
 	Queue<Page> pageQueue;
 	Map<Integer, Page> pageMap;
-	int capicity = 16;
+	int capicity = 20;
 
 	public LRUCache(int capicity) {
 		this.pageMap = new HashMap<Integer, Page>(capicity);
