@@ -5,7 +5,7 @@ import java.util.*;
 public class PhoneNumberCode {
 
 	public static void main(String[] args) {
-		System.out.println(letterCombinations("234"));
+		System.out.println(letterCombinations("534"));
 
 	}
 	public static List<String> letterCombinations(String digits) {  
