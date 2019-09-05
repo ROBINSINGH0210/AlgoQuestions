@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class DivisibilityCheck {
 	
 	public static void main(String[] args) {
-		isDivisible(4);
+		isDivisible(8);
 	}
 
 	static void isDivisible(int num) {
