@@ -3,7 +3,7 @@ package goldman;
 public class MergeSortTest {
 
 	public static void main(String[] args) {
-		int arr[] = { 4, 5, 1, 2, 34, 4, 121, 4, 12, 111 };
+		int arr[] = { 4, 5, 1, 2, 34, 4, 121, 4, 12, 111,200 };
 
 		for (int i : mergeSort(arr, 0, arr.length - 1, new int[arr.length])) {
 			System.out.println(i);
