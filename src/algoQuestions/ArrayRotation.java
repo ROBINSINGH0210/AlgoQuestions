@@ -1,12 +1,8 @@
 package algoQuestions;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ArrayRotation {
 
 	public static void main(String[] args) {
-		Map<Key, Integer> a = new HashMap<ArrayRotation.Key, Integer>();
 		int arr[] = { 1, 2, 3, 4, 5, 6, 7 };
 		printArr(arr);
 		leftRotate(arr, 3, arr.length);
