@@ -33,11 +33,11 @@ public class ReverseArrayOrString {
 	}
 
 	public static void main(String[] args) {
-//		int arr[] = { 4, 5, 1, 2 };
-//		reverse(arr);
-//		for (int i : arr) {
-//			System.out.println(i);
-//		}
+		int arr[] = { 4, 5, 1, 2 };
+		reverse(arr);
+		for (int i : arr) {
+			System.out.println(i);
+		}
 
 		System.out.println(reverseStringRec("robin", "", "robin".length() - 1));
 	}
