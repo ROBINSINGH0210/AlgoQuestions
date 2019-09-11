@@ -16,7 +16,6 @@ public class StockBuySell {
 		List<Interval> list = new LinkedList<>();
 		
 		int i =0;
-		int count =0;
 		while(i< arr.length) {
 			while(i< arr.length && arr[i+1] <= arr[i])
 				i++;
