@@ -57,7 +57,7 @@ public class QuickSortTest {
     public static void main(String a[]){
          
     	QuickSortTest sorter = new QuickSortTest();
-        int[] input = {24,2,45,20,56,75,2,56,99,53,12};
+        int[] input = {24,2,45,20,56,75,2,56,99,77,53,12};
         sorter.sort(input);
         for(int i:input){
             System.out.print(i);
