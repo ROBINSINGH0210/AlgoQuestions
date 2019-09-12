@@ -10,7 +10,7 @@ public class FindMedian {
 	static Queue<Integer> lower = new PriorityQueue<>(Collections.reverseOrder());
 	
 	public static void main(String[] args) {
-//		
+		PriorityQueue<Integer> highsser = new PriorityQueue<>();
 //		Scanner sc = new Scanner(System.in);
 //		int testCase = sc.nextInt();
 //		for (int k = 0; k < testCase; k++) {
@@ -45,6 +45,7 @@ public class FindMedian {
 	private static void balanceHeap(Queue<Integer> higher, Queue<Integer> lower) {
 		Queue<Integer> highSize = (higher.size() > lower.size()) ? higher : lower;
 		Queue<Integer> lowSize = (higher.size() > lower.size()) ? lower : higher; 
+		
 		if((highSize.size() - lowSize.size()) >= 2) 
 			lowSize.add(highSize.poll());
 	}
