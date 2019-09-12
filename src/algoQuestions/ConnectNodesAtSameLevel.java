@@ -10,7 +10,7 @@ public class ConnectNodesAtSameLevel {
 
 	}
 
-	private static void printNodeAtSameLevel(CustomeNode node) {
+	public static void printNodeAtSameLevel(CustomeNode node) {
 		Queue<CustomeNode> queue = new LinkedList<>();
 
 		queue.add(node);
