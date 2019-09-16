@@ -6,9 +6,7 @@ public class CheckPreOrderArrayIsBST {
 
 	public static void main(String[] args) {
 		int[] pre1 = new int[] { 40, 30, 35, 80, 100 };
-		System.out.println("abc? ".trim().endsWith("?"));
-		
-//		System.out.println(isArrayRepresentBST(pre1));
+		System.out.println(isArrayRepresentBST(pre1));
 	}
 
 	public static boolean isArrayRepresentBST(int arr[]) {
