@@ -6,7 +6,7 @@ import java.util.Set;
 public class DistinctPalindromic {
 
 	public static void main(String[] args) {
-		String s = "geek";
+		String s = "geeeek";
 		System.out.println(count(s));
 	}
 
