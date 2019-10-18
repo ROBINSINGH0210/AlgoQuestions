@@ -8,7 +8,7 @@ import java.util.TreeSet;
 public class PairsWithAGivenSum {
 
 	public static void main(String[] args) {
-		int arr1[] = new int[] {-20, 4, -2, -4, 8, 6, 22, 10, -12};
+		int arr1[] = new int[] {-20, 4, -2, -4, 8,7, 6, 22, 10, -12};
 //		System.out.println(findPairs(arr1, arr2, 9));
 		
 		
