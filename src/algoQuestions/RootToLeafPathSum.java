@@ -16,7 +16,7 @@ public class RootToLeafPathSum {
 		 n.right= new Node(5);
 		 n.right.right = new Node(4);
 		 
-//		 print(n);
+		 print(n);
 		 System.out.println(treePathsSum(n, 0));
 
 	}
