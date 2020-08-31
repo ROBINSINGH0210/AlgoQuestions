@@ -14,29 +14,19 @@ public class StockBuySell {
 	
 	static List<Interval> calculateBuySell(int []arr){
 		List<Interval> list = new LinkedList<>();
-		
 		int i =0;
 		while(i< arr.length) {
 			while(i< arr.length && arr[i+1] <= arr[i])
 				i++;
-				
 			if(i >=arr.length )
 				break;
-			
 			Interval interval = new Interval();
 			interval.buy = i;
-			
 			while(i< arr.length -1 && arr[i] < arr[i+1])
 				i++;
-			
 			interval.sell = i++;
-			
 			list.add(interval);
-			
 		}
-		
-		
-		
 		return list;
 	}
 }
