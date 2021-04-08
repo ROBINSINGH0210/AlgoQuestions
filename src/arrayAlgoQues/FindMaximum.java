@@ -46,9 +46,9 @@ class FindMaximum {
 		while (j < n && i < n) {
 			if (LMin[i] < RMax[j]) {
 				maxDiff = max(maxDiff, j - i);
-				j = j + 1;
+				j++;
 			} else
-				i = i + 1;
+				i++;
 		}
 
 		return maxDiff;

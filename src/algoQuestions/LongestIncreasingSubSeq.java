@@ -10,15 +10,15 @@ public class LongestIncreasingSubSeq {
 	}
 	
 	public static int getLongest(int arr[]) {
-		Queue<Integer> q = null ;
+		Stack<Integer> q = null ;
 		for(int i =0; i< arr.length; i++) {
-			Queue<Integer> temp = new PriorityQueue<>(Collections.reverseOrder());
+			Stack<Integer> temp = new Stack<Integer>();
 			temp.add(arr[i]);
 			for(int j =i+1; j< arr.length; j++) {
 				if(temp.peek() < arr[j]) 
 					temp.add(arr[j]);
 			}
-			if(q.size() < temp.size()) {
+			if(q ==null || q.size() < temp.size()) {
 				q = temp;
 			}
 		}
