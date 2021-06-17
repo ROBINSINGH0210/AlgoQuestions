@@ -1,10 +1,7 @@
 package arrayAlgoQues;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
 
 /**
  * @author robin FindTripletWithGivenSum Space complexity O(n), Time complexity
@@ -13,29 +10,28 @@ import java.util.Set;
 public class FindTripletWithGivenSum {
 
 	public static void main(String[] args) {
-		int arr[] = new int[] { 1, 2, 4, 90, 99, 1000 };
+		int arr[] = new int[] { 3, 6, 10, 11 };
 
-		System.out.println(findTriplet(arr, 1003));
+		System.out.println(findTriplet(arr, 20));
 	}
 
 	static List<Integer> findTriplet(int arr[], int value) {
 		List<Integer> list = new ArrayList<Integer>(4);
-		Arrays.parallelSort(arr);
-		Set<Integer> s = new HashSet<Integer>();
-		Arrays.stream(arr).forEach(s::add);
-		int i = 0, j = arr.length - 1;
+		Arrays.sort(arr);
+		int i = 0, j = 1, k = arr.length - 1;
 
-		while (i < j) {
-			int k2 = value - (arr[i] + arr[j]);
-			if (arr[i] != k2 && arr[j] != k2 && s.contains(k2)) {
+		while (j < k) {
+			if (arr[i] + arr[j] + arr[k] == value) {
 				list.add(arr[i]);
 				list.add(arr[j]);
-				list.add(k2);
+				list.add(arr[k]);
 				break;
-			} else if ((arr[i] + arr[j]) < value)
-				i++;
+			} else if ((arr[i] + arr[j] + arr[k]) > value)
+				k--;
+			else if (i >= j - 1)
+				j++;
 			else
-				j--;
+				i++;
 		}
 
 		return list;
