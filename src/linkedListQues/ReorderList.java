@@ -1,5 +1,7 @@
 package linkedListQues;
 
+import java.util.Stack;
+
 import linkedListQues.SinglyLinkedList.Node;
 
 class ReorderList {
@@ -36,7 +38,7 @@ class ReorderList {
 
 		list.printList(list.head);
 		System.out.println(" After Sort ");
-		reorderlist(list.head);
+		reorderList(list.head);
 		list.printList(list.head);
 	}
 
@@ -67,7 +69,7 @@ class ReorderList {
 		size++;
 		reorder(head.next);
 		count--;
-		//Condition to check odd/even size of list
+		// Condition to check odd/even size of list
 		if ((size % 2 != 0 && count == size / 2) || (size % 2 == 0 && count < size / 2)) {
 			reached = true;
 		}
@@ -82,6 +84,28 @@ class ReorderList {
 		orig.next.next = temp;
 		orig = orig.next.next;
 		// head = null;
+
+	}
+
+	static void reorderList(Node head) {
+		Stack<Node> st = new Stack<>();
+		Node curr = head;
+		int count = 0;
+		size = 0;
+		while (curr != null) {
+			st.push(curr);
+			curr = curr.next;
+		}
+		int size = st.size();
+		curr = head;
+		while (curr != null && count < size / 2) {
+			Node temp = curr.next;
+			curr.next = st.pop();
+			curr.next.next = temp;
+			curr = curr.next.next;
+			count++;
+		}
+		curr.next = null;
 
 	}
 }
