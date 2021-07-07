@@ -30,6 +30,26 @@ public class ConnectNodesAtSameLevel {
 		}
 
 	}
+	
+	public static void connectAtSameLevel(CustomeNode node) {
+		CustomeNode root = node;
+		
+		while(root !=null) {
+			CustomeNode curr = root;
+			while(curr !=null) {
+				if(curr.left !=null) {
+					curr.left.nextRight = curr.right;
+				}
+				if(curr.right !=null && curr.nextRight !=null) {
+					curr.right.nextRight = curr.nextRight.left; 
+				}
+				
+				curr = curr.nextRight;
+			}
+			root = root.left;
+		}
+		
+	}
 }
 
 class CustomeNode {
