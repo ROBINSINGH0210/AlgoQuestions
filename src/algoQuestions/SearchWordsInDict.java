@@ -3,6 +3,10 @@ package algoQuestions;
 public class SearchWordsInDict {
 
 	public static void main(String[] args) {
+
+//		["WordDictionary","addWord","addWord","addWord","addWord","search","search","addWord","search","search","search","search","search","search"]
+//				[[],["at"],["and"],["an"],["add"],["a"],[".at"],["bat"],[".at"],["an."],["a.d."],["b."],["a.d"],["."]]
+
 		// TODO Auto-generated method stub
 		Trie trie = new Trie();
 		trie.insert("robin");
@@ -47,14 +51,21 @@ class Trie {
 		if (node == null) {
 			return false;
 		}
-		if (i == str.length()-1) {
-			return true;
+		if (i == str.length()) {
+			return node.isWord;
 		}
 		char c = str.charAt(i);
-		if (c == '*') {
+		if (c == '.') {
 			for (TrieNode nodes : node.child) {
 				if (recSearch(str, nodes, i + 1))
 					return true;
+			}
+			return false;
+		} else if (c == '*') {
+			for (TrieNode nodes : node.child) {
+				if(recSearch(str, nodes, i + 1) || recSearch(str, nodes, i))
+					return true;
+
 			}
 			return false;
 		} else {
