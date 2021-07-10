@@ -31,4 +31,40 @@ class CheckPalindrome {
 		String s = "A man, a plan, a canal: Panama";
 		System.out.println(isPalindrome(s));
 	}
+	
+
+	public static boolean validPalindrome(String s) {
+        int count =0; 
+        char []arr = s.toCharArray();
+        int i =0;
+        int j= arr.length -1;
+        while(i<=j){
+            if(arr[i]!=arr[j]){
+            	return isPalindrome(s,i,j-1) || isPalindrome(s,i+1,j);
+            }
+            else {
+                i++;
+            j--;
+            }
+            if(count>1){
+                return false;
+            }
+            
+        }
+        return true;
+        
+    }
+	
+	private static boolean isPalindrome(String str, int s, int t){
+        while (s <= t){
+            if (str.charAt(s) == str.charAt(t)){
+                s++;
+                t--;
+            }
+            else
+                return false;
+        }
+        
+        return true;
+    }
 }
