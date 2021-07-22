@@ -9,14 +9,16 @@ public class CoinChange {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int arr[] = { 2, 3 };
-		int amt = 0;
+		int arr[] = { 1, 2, 3 };
+		int amt = 4;
 		table = new int[amt + 1];
 		t = new int[arr.length + 1][amt + 1];
 		Arrays.fill(table, -1);
 //		System.out.println(distinctWays(arr, amt));
 //		System.out.println(distinctWays(arr, amt, arr.length - 1));
+		
 		System.out.println(minCoins(arr, amt, 0));
+		System.out.println(Arrays.toString(table));
 	}
 
 	static int coinChange(int[] coins, int amt) {
