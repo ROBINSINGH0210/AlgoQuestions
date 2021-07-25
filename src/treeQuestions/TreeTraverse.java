@@ -54,15 +54,15 @@ public class TreeTraverse {
 	public static void preOrderTraverse(Node tree) {
 		if (tree != null) {
 			System.out.println("Data " + tree.data);
-			inOrderTraverse(tree.left);
-			inOrderTraverse(tree.right);
+			preOrderTraverse(tree.left);
+			preOrderTraverse(tree.right);
 		}
 	}
 
 	public static void postOrderTraverse(Node tree) {
 		if (tree != null) {
-			inOrderTraverse(tree.left);
-			inOrderTraverse(tree.right);
+			postOrderTraverse(tree.left);
+			postOrderTraverse(tree.right);
 			System.out.println("Data " + tree.data);
 		}
 	}

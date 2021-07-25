@@ -13,7 +13,7 @@ public class SearchWordsInDict {
 		trie.insert("robinsingh");
 		trie.insert("singh");
 
-		System.out.println(trie.search("r*"));
+		System.out.println(trie.search("a*"));
 
 	}
 
@@ -34,16 +34,6 @@ class Trie {
 	}
 
 	boolean search(String str) {
-		TrieNode node = root;
-//		for (int i = 0; i < str.length(); i++) {
-//			if (node.child[str.charAt(i) - 'a'] == null || node.isEnd) {
-//				return false;
-//			}
-//			node = node.child[str.charAt(i) - 'a'];
-//		}
-
-//		return true;
-
 		return recSearch(str, root, 0);
 	}
 
