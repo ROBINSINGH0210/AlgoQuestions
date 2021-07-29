@@ -16,9 +16,23 @@ public class CoinChange {
 		Arrays.fill(table, -1);
 //		System.out.println(distinctWays(arr, amt));
 //		System.out.println(distinctWays(arr, amt, arr.length - 1));
-		
+
 		System.out.println(minCoins(arr, amt, 0));
 		System.out.println(Arrays.toString(table));
+	}
+
+	static int coinChangeWays(int[] coins, int amt) {
+		int [][]table = new int[coins.length+1][amt+1];
+		
+		for(int i =1; i<= coins.length; i++) {
+			for(int j =1; j<= amt; j++) {
+				if(j >= coins[i-1]) {
+					table[i][j] = table[i-1][j] + table[i][j- coins[i-1]];
+				}
+			}
+		}
+		
+		return table[coins.length][amt];
 	}
 
 	static int coinChange(int[] coins, int amt) {
@@ -80,7 +94,7 @@ public class CoinChange {
 		if (amt == 0) {
 			return 0;
 		}
-		if(amt < 0) {
+		if (amt < 0) {
 			return -1;
 		}
 		if (table[amt] != -1)
