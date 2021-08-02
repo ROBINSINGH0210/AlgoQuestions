@@ -2,7 +2,7 @@ package arrayAlgoQues;
 
 import java.util.*;
 
-public class DecodeIntegerArray {
+public class DecodeIntegerArrayIntoString {
 
 	public static void main(String[] args) {
 		int arr[] = new int[] {1, 2, 2, 2 };
