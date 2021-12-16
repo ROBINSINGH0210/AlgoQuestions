@@ -36,6 +36,7 @@ public class FirstMissingPositiveNumber {
 				// present in the nums array.
 			}
 		}
+		
 		for (int i = 0; i < nums.length; i++) {
 			if (nums[i] >= 1) {
 				return i + 1; // traverse the array and find if any value is positive
