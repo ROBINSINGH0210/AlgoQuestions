@@ -1,5 +1,7 @@
 package treeQuestions;
 
+import treeQuestions.SubtreeAverage.TreeNode;
+
 public class LongestMonotonicPathInTree {
 	int max = Integer.MIN_VALUE;
 

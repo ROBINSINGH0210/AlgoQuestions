@@ -6,9 +6,9 @@ import java.util.Stack;
 public class BinaryTree {
 	public BinaryTree left;
 	public BinaryTree right;
-	public int root;
+	public int data;
 	public BinaryTree(int root){
-		this.root = root;
+		this.data = root;
 		left = right = null;
 	}
 	

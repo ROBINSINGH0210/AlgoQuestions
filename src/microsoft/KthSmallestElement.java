@@ -1,9 +1,5 @@
 package microsoft;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.io.LineNumberInputStream;
-
 import treeQuestions.BinaryTree;
 
 public class KthSmallestElement {
@@ -18,7 +14,7 @@ public class KthSmallestElement {
 	smallestElement(node.left);
 	num = num - 1;
 	if (num == 0) {
-	System.out.println("Data " + node.root);
+	System.out.println("Data " + node.data);
 	}
 	smallestElement(node.right);
 	}
